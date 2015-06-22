@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:weightSum="1" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" >
+
+        <RelativeLayout
+            android:id="@+id/div1"
+            android:layout_width="match_parent"
+            android:layout_height="390dp"
+            android:background="@drawable/students_1" >
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/evercode_6" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/div2"
+            android:layout_width="match_parent"
+            android:layout_height="390dp" >
+
+            <EditText
+                android:id="@+id/userInput"
+                android:layout_width="255dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@color/white"
+                android:ems="10"
+                android:fontFamily="sans-serif-light" 
+                android:hint="@string/username_hint"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/passInput"
+                android:layout_width="258dp"
+                android:layout_height="30dp"
+                android:fontFamily="sans-serif-light" 
+                android:layout_alignLeft="@+id/userInput"
+                android:layout_below="@+id/userInput"
+                android:layout_marginTop="14dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="@string/password_hint"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="260dp"
+                android:fontFamily="sans-serif-light" 
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/userInput"
+                android:layout_below="@+id/passInput"
+                android:layout_marginTop="26dp"
+                android:text="Iniciar Sesión"
+                android:textSize="16dp" />
+            
+            <Button
+                android:id="@+id/account"
+                android:layout_width="260dp"
+                android:fontFamily="sans-serif-light" 
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/userInput"
+                android:layout_below="@+id/passInput"
+                android:layout_marginTop="26dp"
+                android:text="Crear Cuenta"
+                android:textSize="16dp" />
+
+            <RelativeLayout
+                android:id="@+id/div3"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/login"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true" >
+
+                <TextView
+                    android:id="@+id/olvidaste_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="¿Olvidaste tu contraseña?"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/div4"
+                android:layout_width="118dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true" >
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_iniciar_sesion"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/div3"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/s_iniciar_sesion"                
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+              <Button
+                android:id="@+id/btn_create_user"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/div3"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/s_create_account"                
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+     
+              <!-- Anterior boton para redireccion a creacion de usuario -->
+<!-- 
+            <Button
+                android:id="@+id/url_create_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/div3"
+                android:autoLink="web"
+                android:clickable="true"
+                android:fontFamily="sans-serif-light"
+                android:linksClickable="true"
+                android:text="@string/s_create_account"
+                android:textAppearance="?android:attr/textAppearanceSmall" />-->
+
+        </RelativeLayout>
+
+        <!--
+        <Button
+            android:layout_width="258dp"
+            android:layout_height="wrap_content"
+            android:text="Crear Cuenta"
+            android:id="@+id/crear"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="80dp"
+            android:layout_marginLeft="10dp" />
+        -->
+
+    </FrameLayout>
+    
+     <FrameLayout
+                android:id="@+id/div5"
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true" 
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/logueo_fb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="sans-serif-light"
+                    android:text="fbfbfb"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </FrameLayout>
+
+  
+
+</RelativeLayout>

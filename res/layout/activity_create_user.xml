@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:background="@color/white">
+        
+       <RelativeLayout
+            android:id="@+id/div1"
+            android:layout_width="match_parent"
+            android:layout_height="390dp"
+            android:background="@drawable/students_1" >
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/evercode_6" />
+        </RelativeLayout>
+        
+         <RelativeLayout
+            android:id="@+id/div2"
+            android:layout_width="match_parent"
+            android:layout_height="390dp" >
+
+        <Button
+            android:id="@+id/cu_registrar"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="27dp"
+            android:fontFamily="sans-serif-light" 
+            android:textSize="16dp"
+            android:text="Crear Usuario" />
+
+        <EditText
+            android:id="@+id/cu_passInput"
+            android:layout_width="255dp"
+             android:layout_height="30dp"
+            android:layout_above="@+id/cu_registrar"
+            android:layout_alignRight="@+id/cu_registrar"
+            android:background="@color/white"
+            android:layout_marginBottom="17dp"
+            android:textSize="16dp"
+            android:ems="10"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/cu_userInput"
+            android:layout_width="255dp"
+             android:layout_height="30dp"
+            android:layout_above="@+id/cu_passInput"
+            android:layout_alignRight="@+id/cu_passInput"
+            android:background="@color/white"
+            android:layout_marginBottom="18dp"
+            android:ems="10"
+            android:hint="@string/username_hint" >
+
+            <requestFocus />
+        </EditText>
+
+        </RelativeLayout>
+
+
+    </FrameLayout>
+
+</LinearLayout>
