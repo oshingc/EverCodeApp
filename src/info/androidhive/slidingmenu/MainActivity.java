@@ -196,7 +196,7 @@ public class MainActivity extends Activity {
 			fragment = new ProfileFragment();
 			break;
 		case 2:
-			fragment = new PhotosFragment();
+			fragment = new ExercisesFragment();
 			break;
 		case 3:
 			fragment = new CommunityFragment();
