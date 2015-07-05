@@ -14,6 +14,14 @@
         android:id="@+id/exercises_contenedor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/p1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/n1_p1" 
+            android:textSize="12pt">
+        </TextView>
     </RelativeLayout>
 
     <TableLayout
@@ -27,26 +35,52 @@
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content" >
-            
-            
+
+            <Button
+                android:id="@+id/a1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+            	android:background="@color/turqoise_1"
+                android:text="@string/n1_p1_a1" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/a2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+            	android:background="@color/turqoise_1"
+                android:text="@string/n1_p1_a2" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/a3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+            	android:background="@color/turqoise_1"
+                android:text="@string/n1_p1_a3" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/a4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+            	android:background="@color/turqoise_1"	
+                android:text="@string/n1_p1_a4" />
         </TableRow>
     </TableLayout>
 

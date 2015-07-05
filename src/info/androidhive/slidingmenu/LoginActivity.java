@@ -77,10 +77,6 @@ public class LoginActivity extends Activity {
 								Usuario user = manager.getUsuario(usuarioText,
 										passText);
 
-								Toast.makeText(getApplicationContext(),
-										user.getUsername() + " --",
-										Toast.LENGTH_SHORT).show();
-
 								if (user.getUserId() != null) {
 									
 									usuarioText = null;
@@ -136,7 +132,7 @@ public class LoginActivity extends Activity {
                         DataBaseManager manager = new DataBaseManager(LoginActivity.this);
                         manager.addUsuario(usuarioText, passText);
 
-                        Toast.makeText(getApplicationContext(), "Creación de user", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_SHORT).show();
 
                         /*Intent menuView = new Intent(CreateUserActivity.this, SampleActivity.class);
                         startActivity(menuView);*/
