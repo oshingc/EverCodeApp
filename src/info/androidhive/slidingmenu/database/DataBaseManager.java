@@ -1,6 +1,14 @@
 package info.androidhive.slidingmenu.database;
 
+import info.androidhive.slidingmenu.model.Alternativa;
+import info.androidhive.slidingmenu.model.Nivel;
+import info.androidhive.slidingmenu.model.Pregunta;
+import info.androidhive.slidingmenu.model.TipoPregunta;
 import info.androidhive.slidingmenu.model.Usuario;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -49,8 +57,9 @@ public class DataBaseManager {
     /*Table Pregunta*/
     public static final String TABLE_PREGUNTA = "Pregunta";
     public static final String PREGUNTA_ID = "idPregunta";
-    public static final String PREGUNTA_ID_TIPO_PREGUNTA = "idPregunta";
-    public static final String PREGUNTA_ID_RESPUESTA="idRespuesta";
+    public static final String PREGUNTA_ID_NIVEL = "idNivel";
+    public static final String PREGUNTA_ID_TIPO_PREGUNTA = "idTipoPregunta";
+    //public static final String PREGUNTA_ID_RESPUESTA="idRespuesta";
     public static final String PREGUNTA_ENUNCIADO= "descripcion";
 
 
@@ -59,6 +68,7 @@ public class DataBaseManager {
     public static final String ALTERNATIVA_ID = "idAlternativa";
     public static final String ALTERNATIVA_ID_PREGUNTA = "idPregunta";
     public static final String ALTERNATIVA_ENUNCIADO= "enunciado";
+    public static final String ALTERNATIVA_ESRESPUESTA="esRespuesta";
 
     /*Table Comentario*/
     public static final String TABLE_COMENTARIO = "Comentario";
@@ -106,12 +116,12 @@ public class DataBaseManager {
 
     public static final String CREATE_TABLE_NIVEL = "" +
             "create table "+TABLE_NIVEL +"( "+
-            NIVEL_ID+" integer primary key autoincrement, " +
+            NIVEL_ID+" integer primary key , " +
             NIVEL_NIVEL +" text not null);";
 
     public static final String CREATE_TABLE_TIPO_PREGUNTA = "" +
             "create table "+TABLE_TIPO_PREGUNTA +"( "+
-            TIPO_PREGUNTA_ID+" integer primary key autoincrement, " +
+            TIPO_PREGUNTA_ID+" integer primary key , " +
             TIPO_PREGUNTA_DESCRIPCION +" text not null);";
 
     public static final String CREATE_TABLE_RESPUESTA = "" +
@@ -121,25 +131,26 @@ public class DataBaseManager {
 
     public static final String CREATE_TABLE_MEDALLA = "" +
             "create table "+TABLE_MEDALLA +"( "+
-            MEDALLA_ID+" integer primary key autoincrement, " +
+            MEDALLA_ID+" integer primary key , " +
             MEDALLA_MEDALLA_IMAGEN +" text," +
             MEDALLA_NOMBRE+"text );";
-
+    
     public static final String CREATE_TABLE_PREGUNTA = "" +
             "create table "+TABLE_PREGUNTA +"( "+
-            PREGUNTA_ID+" integer primary key autoincrement, " +
-            PREGUNTA_ID_TIPO_PREGUNTA+" integer,"+
-            PREGUNTA_ID_RESPUESTA+" integer,"+
-            PREGUNTA_ENUNCIADO +" text not null"+
-            " foreign key ("+PREGUNTA_ID_TIPO_PREGUNTA+") references "+TABLE_TIPO_PREGUNTA+"("+TIPO_PREGUNTA_ID+"),"+
-            " foreign key ("+PREGUNTA_ID_RESPUESTA+") references "+TABLE_RESPUESTA+"("+RESPUESTA_ID+"));";
+            PREGUNTA_ID+" integer primary key , " +
+            PREGUNTA_ID_TIPO_PREGUNTA+" integer, "+
+            PREGUNTA_ID_NIVEL+" integer, "+
+            //PREGUNTA_ID_RESPUESTA+" integer,"+
+            PREGUNTA_ENUNCIADO +" text not null, "+
+            " foreign key ("+PREGUNTA_ID_TIPO_PREGUNTA+") references "+TABLE_TIPO_PREGUNTA+"("+TIPO_PREGUNTA_ID+"));";
 
 
     public static final String CREATE_TABLE_ALTERNATIVA = "" +
             "create table "+TABLE_ALTERNATIVA +"( "+
-            ALTERNATIVA_ID+" integer primary key autoincrement, " +
+            ALTERNATIVA_ID+" integer primary key , " +
             ALTERNATIVA_ID_PREGUNTA+" integer not null, "+
             ALTERNATIVA_ENUNCIADO +" text not null,"+
+            ALTERNATIVA_ESRESPUESTA + " integer , "+
             " foreign key ("+ALTERNATIVA_ID_PREGUNTA+") references "+TABLE_PREGUNTA+"("+PREGUNTA_ID+"));";
 
 
@@ -234,6 +245,82 @@ public class DataBaseManager {
             return myUser;
         }catch (Exception e){
             Log.d("getUsuario", "excepcion");
+
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    
+
+    public List<Pregunta> getPreguntas (Nivel nivel, TipoPregunta tipoPregunta){
+        try {
+        	Integer idNivel = nivel.getIdNivel();
+        	Integer idTipoPregunta = tipoPregunta.getIdTipoPregunta();
+        	
+            String query = "Select idPregunta, idNivel, idTipoPregunta, descripcion "
+            		+ " from Pregunta "
+            		+ " where idNivel =" + idNivel + " and idTipoPregunta = " + idTipoPregunta + "";
+            List<Pregunta> preguntas = new ArrayList<Pregunta>();
+            Cursor cursor = db.rawQuery(query, null);
+            if (cursor.moveToFirst()) {
+                do {
+                	Pregunta pregunta = new Pregunta();
+                	pregunta.setIdPregunta(cursor.getInt(0));
+                	pregunta.setNivel(new Nivel());
+                	pregunta.getNivel().setIdNivel(cursor.getInt(1));
+                	pregunta.setTipoPregunta(new TipoPregunta());
+                	pregunta.getTipoPregunta().setIdTipoPregunta(cursor.getInt(2));
+                	pregunta.setEnunciado(cursor.getString(3));
+                	
+                	List<Alternativa> alternativas = getAlternativas(pregunta.getIdPregunta()); 
+                	pregunta.setA1(alternativas.get(0));
+                	pregunta.setA2(alternativas.get(1));
+                	pregunta.setA3(alternativas.get(2));
+                	pregunta.setA4(alternativas.get(3));
+                	preguntas.add(pregunta);
+                	
+                } while (cursor.moveToNext());
+            }
+
+
+            return preguntas;
+        }catch (Exception e){
+            Log.d("getPreguntas", "excepcion");
+
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    
+    public List<Alternativa> getAlternativas(Integer idPregunta){
+        try {
+        	
+            String query = "Select idAlternativa, idPregunta, enunciado, esRespuesta "
+            		+ " from Alternativa "
+            		+ " where idPregunta ="+idPregunta;
+            List<Alternativa> alternativas = new ArrayList<Alternativa>();
+            Cursor cursor = db.rawQuery(query, null);
+            if (cursor.moveToFirst()) {
+                do {
+                	Alternativa alternativa = new Alternativa();
+                	alternativa.setIdAlternativa(cursor.getInt(0));
+                	alternativa.setPregunta(new Pregunta());
+                	alternativa.getPregunta().setIdPregunta(cursor.getInt(1));
+                	alternativa.setAlternativa(cursor.getString(2));
+                	alternativa.setEsRespuesta(cursor.getInt(3)>0);
+                	alternativas.add(alternativa);
+                	
+                } while (cursor.moveToNext());
+            }
+            
+          
+
+
+            return alternativas;
+        }catch (Exception e){
+            Log.d("getPreguntas", "excepcion");
 
             e.printStackTrace();
         }

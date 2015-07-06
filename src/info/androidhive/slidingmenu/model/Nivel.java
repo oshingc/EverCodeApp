@@ -9,6 +9,10 @@ public class Nivel {
 		
 	}
 	
+	public Nivel(Integer idNivel){
+		this.idNivel = idNivel;
+	}
+
 	public Integer getIdNivel() {
 		return idNivel;
 	}

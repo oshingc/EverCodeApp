@@ -5,6 +5,7 @@ public class Alternativa {
 	private Integer idAlternativa;
 	private String alternativa;
 	private Boolean esRespuesta;
+	private Pregunta pregunta;
 	
 	public Alternativa(){
 		
@@ -38,6 +39,14 @@ public class Alternativa {
 	}
 	public void setEsRespuesta(Boolean esRespuesta) {
 		this.esRespuesta = esRespuesta;
+	}
+
+	public Pregunta getPregunta() {
+		return pregunta;
+	}
+
+	public void setPregunta(Pregunta pregunta) {
+		this.pregunta = pregunta;
 	}
 
 }

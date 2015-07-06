@@ -1,12 +1,16 @@
 package info.androidhive.slidingmenu;
 
-import info.androidhive.slidingmenu.model.Alternativa;
+import info.androidhive.slidingmenu.database.DataBaseManager;
+import info.androidhive.slidingmenu.database.DbHelper;
+import info.androidhive.slidingmenu.model.Nivel;
 import info.androidhive.slidingmenu.model.Pregunta;
+import info.androidhive.slidingmenu.model.TipoPregunta;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Fragment;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,7 +44,7 @@ public class ExercisesFragment extends Fragment {
 	    public void onActivityCreated(Bundle state) {
 	        super.onActivityCreated(state);
 	        
-	        Pregunta p1 = new Pregunta(1,"¿Qué es un Algoritmo?",
+	       /* Pregunta p1 = new Pregunta(1,"¿Qué es un Algoritmo?",
 	        		new Alternativa("A. Un conjunto de pasos ordenados a seguir que cumplen un fin u objetivo.",
 	        				Boolean.TRUE),
 	        		new Alternativa("B. Es una estructura de control oshina.",
@@ -61,7 +65,18 @@ public class ExercisesFragment extends Fragment {
 	        				Boolean.FALSE),"Nivel 1");
 	        
 	        preguntas.add(p1);
-	        preguntas.add(p2);
+	        preguntas.add(p2);*/
+	        
+	        //LLENAR PREGUNTAS CON LA BD
+
+			DbHelper helper = new DbHelper(getView().getContext());
+			SQLiteDatabase db = helper.getWritableDatabase();
+			
+			DataBaseManager manager = new DataBaseManager(
+					getView().getContext());
+			
+	        preguntas = manager.getPreguntas(new Nivel(1),new TipoPregunta(1));
+	        
 	        
 	        llenarPreguntas();
 	 
@@ -79,6 +94,9 @@ public class ExercisesFragment extends Fragment {
 					@Override
 					public void onClick(View v) {
 						Log.d("myTag", "click a");
+						if(preguntaActual.getA1().getEsRespuesta()==null){
+							Log.d("myTag","es null");
+						}
 						if(preguntaActual.getA1().getEsRespuesta().equals(Boolean.TRUE)){
 							Toast.makeText(getView().getContext(),
 									"Respuesta Correcta",
@@ -107,6 +125,10 @@ public class ExercisesFragment extends Fragment {
 					@Override
 					public void onClick(View v) {
 						Log.d("myTag", "click b");
+						if(preguntaActual.getA2().getEsRespuesta()==null){
+							Log.d("myTag","es null");
+						}
+						
 						if(preguntaActual.getA2().getEsRespuesta().equals(Boolean.TRUE)){
 							Toast.makeText(getView().getContext(),
 									"Respuesta Correcta",
@@ -134,6 +156,9 @@ public class ExercisesFragment extends Fragment {
 					@Override
 					public void onClick(View v) {
 						Log.d("myTag", "click c");
+						if(preguntaActual.getA3().getEsRespuesta()==null){
+							Log.d("myTag","es null");
+						}
 						if(preguntaActual.getA3().getEsRespuesta().equals(Boolean.TRUE)){
 							Toast.makeText(getView().getContext(),
 									"Respuesta Correcta",
@@ -161,6 +186,9 @@ public class ExercisesFragment extends Fragment {
 					@Override
 					public void onClick(View v) {
 						Log.d("myTag", "click d");
+						if(preguntaActual.getA4().getEsRespuesta()==null){
+							Log.d("myTag","es null");
+						}
 						if(preguntaActual.getA4().getEsRespuesta().equals(Boolean.TRUE)){
 							Toast.makeText(getView().getContext(),
 									"Respuesta Correcta",
@@ -181,22 +209,27 @@ public class ExercisesFragment extends Fragment {
 	}
 	
 	public void llenarPreguntas(){
-		preguntaActual = preguntas.get(idPreguntaActual);
-		
-		TextView texto = (TextView) getActivity().findViewById(R.id.p1);
-		texto.setText(preguntaActual.getEnunciado());
-		
-		Button b1 = (Button) getActivity().findViewById(R.id.a1);
-		b1.setText(preguntaActual.getA1().getAlternativa());
-
-		Button b2 = (Button) getActivity().findViewById(R.id.a2);
-		b2.setText(preguntaActual.getA2().getAlternativa());
-		
-		Button b3 = (Button) getActivity().findViewById(R.id.a3);
-		b3.setText(preguntaActual.getA3().getAlternativa());
-		
-		Button b4 = (Button) getActivity().findViewById(R.id.a4);
-		b4.setText(preguntaActual.getA4().getAlternativa());
+		if(preguntas != null){
+			Log.d("myTag",idPreguntaActual+"");
+			preguntaActual = preguntas.get(idPreguntaActual);
+			
+			TextView texto = (TextView) getActivity().findViewById(R.id.p1);
+			texto.setText(preguntaActual.getEnunciado());
+			
+			Button b1 = (Button) getActivity().findViewById(R.id.a1);
+			b1.setText(preguntaActual.getA1().getAlternativa());
+	
+			Button b2 = (Button) getActivity().findViewById(R.id.a2);
+			b2.setText(preguntaActual.getA2().getAlternativa());
+			
+			Button b3 = (Button) getActivity().findViewById(R.id.a3);
+			b3.setText(preguntaActual.getA3().getAlternativa());
+			
+			Button b4 = (Button) getActivity().findViewById(R.id.a4);
+			b4.setText(preguntaActual.getA4().getAlternativa());
+		}else{
+			Log.d("myTag", "no hay Preguntas");
+		}
 	}
 
 	//Setters y Getters

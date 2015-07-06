@@ -34,6 +34,13 @@ public class LoginActivity extends Activity {
 
 		DbHelper helper = new DbHelper(this);
 		SQLiteDatabase db = helper.getWritableDatabase();
+		
+//		manager = new DataBaseManager(
+//				getApplicationContext());
+//
+//		Usuario user = manager.getUsuario(usuarioText,
+//				passText);
+//		
 
 		// this.root = (LoginContainer)
 		// this.getLayoutInflater().inflate(R.layout.activity_login, null);

@@ -4,6 +4,7 @@ public class Pregunta {
 
 	private Integer idPregunta;
 	private String enunciado;
+	private TipoPregunta tipoPregunta;
 	private Alternativa a1;
 	private Alternativa a2;
 	private Alternativa a3;
@@ -79,6 +80,14 @@ public class Pregunta {
 
 	public void setNivel(Nivel nivel) {
 		this.nivel = nivel;
+	}
+
+	public TipoPregunta getTipoPregunta() {
+		return tipoPregunta;
+	}
+
+	public void setTipoPregunta(TipoPregunta tipoPregunta) {
+		this.tipoPregunta = tipoPregunta;
 	}
 
 }
