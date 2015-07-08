@@ -11,7 +11,7 @@
        <RelativeLayout
             android:id="@+id/div1"
             android:layout_width="match_parent"
-            android:layout_height="390dp"
+            android:layout_height="match_parent"
             android:background="@drawable/students_1" >
 
             <ImageView
@@ -47,6 +47,8 @@
             android:layout_marginBottom="17dp"
             android:textSize="16dp"
             android:ems="10"
+            android:singleLine="true"
+            android:focusable="true"
             android:hint="@string/password_hint"
             android:inputType="textPassword" />
 
@@ -56,7 +58,10 @@
              android:layout_height="30dp"
             android:layout_above="@+id/cu_passInput"
             android:layout_alignRight="@+id/cu_passInput"
+            android:nextFocusRight="@+id/cu_passInput"
             android:background="@color/white"
+            android:singleLine="true"
+            android:inputType="text"   
             android:layout_marginBottom="18dp"
             android:ems="10"
             android:hint="@string/username_hint" >

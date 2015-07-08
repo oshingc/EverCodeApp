@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +44,7 @@ public class ExercisesFragment extends Fragment {
 	 @Override
 	    public void onActivityCreated(Bundle state) {
 	        super.onActivityCreated(state);
+	        
 	        
 	       /* Pregunta p1 = new Pregunta(1,"¿Qué es un Algoritmo?",
 	        		new Alternativa("A. Un conjunto de pasos ordenados a seguir que cumplen un fin u objetivo.",
@@ -79,6 +81,8 @@ public class ExercisesFragment extends Fragment {
 	        
 	        
 	        llenarPreguntas();
+	        progressBar();
+	        botonSiguiente();
 	 
 	        evaluarA1();
 			evaluarA2();
@@ -86,7 +90,52 @@ public class ExercisesFragment extends Fragment {
 			evaluarA4();
 
 	    }
+	 
+	 
+
+	 private void progressBar(){//3441
+			
+			ProgressBar progressBar = (ProgressBar) getView().findViewById(R.id.progressBar1);
+			progressBar.setProgress(0);
+		}
+	 
+	 
+	 private void progressBarIncremento(){//3441
+			
+			ProgressBar progressBar = (ProgressBar) getView().findViewById(R.id.progressBar1);
+			progressBar.setProgress(progressBar.getProgress()+10);
+		}
+		
+	 
 	
+	
+	 
+	 private void botonSiguiente(){//3441
+			
+			Button btnSgte = (Button) getView().findViewById(R.id.btnSgte);
+			btnSgte.setVisibility(View.INVISIBLE);
+			
+			
+			
+			btnSgte.setOnClickListener(new View.OnClickListener() {// Se
+						@Override
+						public void onClick(View v) {
+							
+							if(preguntas.size()>idPreguntaActual+1){
+								idPreguntaActual++;
+								Button b = (Button) getView().findViewById(R.id.btnSgte);
+								b.setVisibility(View.INVISIBLE);
+								
+								llenarPreguntas();
+							}else{
+								//fin de formulario
+							}
+							
+						}
+					});
+		}
+		
+	 
 	private void evaluarA1(){
 		
 		Button a1 = (Button) getView().findViewById(R.id.a1);
@@ -101,12 +150,18 @@ public class ExercisesFragment extends Fragment {
 							Toast.makeText(getView().getContext(),
 									"Respuesta Correcta",
 									Toast.LENGTH_SHORT).show();
-							if(preguntas.size()>idPreguntaActual+1){
-								idPreguntaActual++;
-								llenarPreguntas();
-							}else{
-								//fin de formulario
-							}
+							
+							Button b = (Button) getView().findViewById(R.id.btnSgte);
+							b.setVisibility(View.VISIBLE);
+							
+							progressBarIncremento();
+							
+//							if(preguntas.size()>idPreguntaActual+1){
+//								idPreguntaActual++;
+//								llenarPreguntas();
+//							}else{
+//								//fin de formulario
+//							}
 							
 						}else{
 							Toast.makeText(getView().getContext(),
@@ -133,12 +188,17 @@ public class ExercisesFragment extends Fragment {
 							Toast.makeText(getView().getContext(),
 									"Respuesta Correcta",
 									Toast.LENGTH_SHORT).show();
-							if(preguntas.size()>idPreguntaActual+1){
-								idPreguntaActual++;
-								llenarPreguntas();
-							}else{
-								//fin de formulario
-							}
+							Button b = (Button) getView().findViewById(R.id.btnSgte);
+							b.setVisibility(View.VISIBLE);
+							
+							progressBarIncremento();
+							
+//							if(preguntas.size()>idPreguntaActual+1){
+//								idPreguntaActual++;
+//								llenarPreguntas();
+//							}else{
+//								//fin de formulario
+//							}
 						}else{
 							Toast.makeText(getView().getContext(),
 									"Respuesta InCorrecta",
@@ -163,12 +223,17 @@ public class ExercisesFragment extends Fragment {
 							Toast.makeText(getView().getContext(),
 									"Respuesta Correcta",
 									Toast.LENGTH_SHORT).show();
-							if(preguntas.size()>idPreguntaActual+1){
-								idPreguntaActual++;
-								llenarPreguntas();
-							}else{
-								//fin de formulario
-							}
+							Button b = (Button) getView().findViewById(R.id.btnSgte);
+							b.setVisibility(View.VISIBLE);
+							
+							progressBarIncremento();
+							
+//							if(preguntas.size()>idPreguntaActual+1){
+//								idPreguntaActual++;
+//								llenarPreguntas();
+//							}else{
+//								//fin de formulario
+//							}
 						}else{
 							Toast.makeText(getView().getContext(),
 									"Respuesta InCorrecta",
@@ -193,12 +258,17 @@ public class ExercisesFragment extends Fragment {
 							Toast.makeText(getView().getContext(),
 									"Respuesta Correcta",
 									Toast.LENGTH_SHORT).show();
-							if(preguntas.size()>idPreguntaActual+1){
-								idPreguntaActual++;
-								llenarPreguntas();
-							}else{
-								//fin de formulario
-							}
+							Button b = (Button) getView().findViewById(R.id.btnSgte);
+							b.setVisibility(View.VISIBLE);
+							
+							progressBarIncremento();
+							
+//							if(preguntas.size()>idPreguntaActual+1){
+//								idPreguntaActual++;
+//								llenarPreguntas();
+//							}else{
+//								//fin de formulario
+//							}
 						}else{
 							Toast.makeText(getView().getContext(),
 									"Respuesta InCorrecta",

@@ -8,20 +8,34 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@color/white" >
-    </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/exercises_contenedor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        <RelativeLayout
+            android:id="@+id/exercises_contenedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" >
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/p1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/n1_p1" 
-            android:textSize="12pt">
-        </TextView>
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/exercises_contenedor"
+            android:text="@string/n1_p1"
+            android:textSize="8pt" />
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" />
+
     </RelativeLayout>
 
     <TableLayout
@@ -40,7 +54,8 @@
                 android:id="@+id/a1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-            	android:background="@color/turqoise_1"
+            	android:background="@color/gray"
+            	android:textColor="@color/white"
                 android:text="@string/n1_p1_a1" />
         </TableRow>
 
@@ -53,7 +68,8 @@
                 android:id="@+id/a2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-            	android:background="@color/turqoise_1"
+            	android:background="@color/gray"
+            	android:textColor="@color/white"
                 android:text="@string/n1_p1_a2" />
         </TableRow>
 
@@ -66,7 +82,8 @@
                 android:id="@+id/a3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-            	android:background="@color/turqoise_1"
+            	android:background="@color/gray"
+            	android:textColor="@color/white"
                 android:text="@string/n1_p1_a3" />
         </TableRow>
 
@@ -79,9 +96,18 @@
                 android:id="@+id/a4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-            	android:background="@color/turqoise_1"	
+            	android:background="@color/gray"
+            	android:textColor="@color/white"	
                 android:text="@string/n1_p1_a4" />
         </TableRow>
+
+        <Button
+            android:id="@+id/btnSgte"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@color/turoise"
+            android:text="Siguiente" />
+
     </TableLayout>
 
 </RelativeLayout>
