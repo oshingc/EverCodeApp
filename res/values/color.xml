@@ -15,5 +15,14 @@
     <color name="turqoise_clear">#7986cb</color>
     <color name="gray">#616161</color>
     <color name="turqoise_1">#80cbc4</color>
+    <color name="beige">#D1BDB8</color>
+    <color name="tono1">#009D84</color><!-- turquesa brillante -->
+    <color name="tono2">#39BCA4</color><!-- turquesa claro -->
+    <color name="tono3">#F1EEDA</color><!-- beige claro -->
+    <color name="tono4">#4C565E</color><!-- plomo -->
+    <color name="tono5">#E75244</color><!-- rojo cálido -->
+    <color name="tono6">#758587</color><!-- gris claro -->
+    <color name="tono7">#0E6999</color><!-- color azulito -->
+    
 
 </resources>

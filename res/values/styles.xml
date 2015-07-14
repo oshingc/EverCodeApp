@@ -14,6 +14,7 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
+        
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     
@@ -31,12 +32,11 @@
         <item name="android:color">@color/white</item>
     </style>
     
+    <style name="AppBaseTheme1" parent="android:Theme.Light" >
+          <item name="android:windowNoTitle">true</item>   <!-- //this -->     
+   </style>
+  
     
-    
-    
-    
-   
-
     <!-- 
     <style name="MyTheme1" parent="AppBaseTheme">
         <item name="android:background">#1a237e</item>

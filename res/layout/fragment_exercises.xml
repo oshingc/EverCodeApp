@@ -6,8 +6,7 @@
     <RelativeLayout
         android:id="@+id/exercises_image"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/white" >
+        android:layout_height="120dp" >
 
         <RelativeLayout
             android:id="@+id/exercises_contenedor"
@@ -24,17 +23,19 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/exercises_contenedor"
             android:text="@string/n1_p1"
-            android:textSize="8pt" />
+            android:textSize="8pt" 
+            android:textColor="@color/black" />
 
         <ProgressBar
             android:id="@+id/progressBar1"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="15dp"
+            android:minHeight="30dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentTop="true" 
+            />
 
     </RelativeLayout>
 
@@ -48,15 +49,19 @@
 
         <TableRow
             android:id="@+id/tableRow1"
-            android:layout_width="wrap_content" >
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/a1"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
-            	android:background="@color/gray"
+            	android:background="@color/tono6"
             	android:textColor="@color/white"
-                android:text="@string/n1_p1_a1" />
+                android:text="@string/n1_p1_a1" 
+                android:textSize="8pt"
+                android:minWidth="50dp"
+                android:layout_marginBottom="4dp"/>
         </TableRow>
 
         <TableRow
@@ -68,9 +73,11 @@
                 android:id="@+id/a2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-            	android:background="@color/gray"
+            	android:background="@color/tono6"
             	android:textColor="@color/white"
-                android:text="@string/n1_p1_a2" />
+                android:text="@string/n1_p1_a2" 
+                android:textSize="8pt"
+                android:layout_marginBottom="4dp"/>
         </TableRow>
 
         <TableRow
@@ -82,9 +89,11 @@
                 android:id="@+id/a3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-            	android:background="@color/gray"
+            	android:background="@color/tono6"
             	android:textColor="@color/white"
-                android:text="@string/n1_p1_a3" />
+                android:text="@string/n1_p1_a3" 
+                android:textSize="8pt"
+                android:layout_marginBottom="4dp"/>
         </TableRow>
 
         <TableRow
@@ -96,17 +105,28 @@
                 android:id="@+id/a4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-            	android:background="@color/gray"
+            	android:background="@color/tono6"
             	android:textColor="@color/white"	
-                android:text="@string/n1_p1_a4" />
-        </TableRow>
-
+                android:text="@string/n1_p1_a4" 
+                android:textSize="8pt"
+                android:layout_marginBottom="4dp"/>
+        </TableRow>        
+              
         <Button
-            android:id="@+id/btnSgte"
+            android:id="@+id/btnCalificar"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@color/turoise"
-            android:text="Siguiente" />
+            android:text="Calificar" 
+            android:textSize="8pt"/>
+
+<!--         <Button -->
+<!--             android:id="@+id/btnSgte" -->
+<!--             android:layout_width="120dp" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:background="@color/turoise" -->
+<!--             android:text="Continuar"  -->
+<!--             android:textSize="8pt"/> -->
 
     </TableLayout>
 

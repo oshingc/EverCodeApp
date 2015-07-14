@@ -13,7 +13,7 @@
         <RelativeLayout
             android:id="@+id/div1"
             android:layout_width="match_parent"
-            android:layout_height="390dp"
+            android:layout_height="520dp"
             android:background="@drawable/students_1" >
 
             <ImageView
@@ -26,7 +26,7 @@
         <RelativeLayout
             android:id="@+id/div2"
             android:layout_width="match_parent"
-            android:layout_height="390dp" >
+            android:layout_height="520dp" >
 
             <EditText
                 android:id="@+id/userInput"
@@ -173,7 +173,7 @@
      <FrameLayout
                 android:id="@+id/div5"
                 android:layout_width="match_parent"
-                android:layout_height="95dp"
+                android:layout_height="0dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true" 
                 android:background="@color/white">
