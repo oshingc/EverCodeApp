@@ -2,11 +2,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+    
+    
+    <RelativeLayout
+        android:id="@+id/exercises_niveles"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" >
+    
+    
+     <Button
+            android:id="@+id/n1"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:background="@color/tono7"
+            android:text="Nivel 1" 
+            android:textColor="@color/white"
+            android:textSize="8pt"
+            android:layout_centerHorizontal="true"/>
+            
+            <Button
+            android:id="@+id/n2"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:background="@color/tono7"
+            android:text="Nivel 2"
+            android:textColor="@color/white" 
+            android:layout_below="@+id/n1"
+            android:layout_centerHorizontal="true"
+            android:textSize="8pt"/>
+            
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/exercises_image"
         android:layout_width="match_parent"
-        android:layout_height="120dp" >
+        android:layout_height="100dp" >
 
         <RelativeLayout
             android:id="@+id/exercises_contenedor"
@@ -15,11 +45,13 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true" >
         </RelativeLayout>
+        
+         
 
         <TextView
             android:id="@+id/p1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/exercises_contenedor"
             android:text="@string/n1_p1"
@@ -40,11 +72,12 @@
     </RelativeLayout>
 
     <TableLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/tabla"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentRight="false"
         android:layout_below="@+id/exercises_image" >
 
         <TableRow
@@ -54,13 +87,13 @@
 
             <Button
                 android:id="@+id/a1"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
             	android:background="@color/tono6"
             	android:textColor="@color/white"
                 android:text="@string/n1_p1_a1" 
                 android:textSize="8pt"
-                android:minWidth="50dp"
+                android:minWidth="80dp"
                 android:layout_marginBottom="4dp"/>
         </TableRow>
 
@@ -72,7 +105,7 @@
             <Button
                 android:id="@+id/a2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
             	android:background="@color/tono6"
             	android:textColor="@color/white"
                 android:text="@string/n1_p1_a2" 
@@ -88,7 +121,7 @@
             <Button
                 android:id="@+id/a3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
             	android:background="@color/tono6"
             	android:textColor="@color/white"
                 android:text="@string/n1_p1_a3" 
@@ -104,7 +137,7 @@
             <Button
                 android:id="@+id/a4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
             	android:background="@color/tono6"
             	android:textColor="@color/white"	
                 android:text="@string/n1_p1_a4" 
@@ -118,6 +151,7 @@
             android:layout_height="wrap_content"
             android:background="@color/turoise"
             android:text="Calificar" 
+            android:textColor="@color/white"
             android:textSize="8pt"/>
 
 <!--         <Button -->
@@ -128,6 +162,28 @@
 <!--             android:text="Continuar"  -->
 <!--             android:textSize="8pt"/> -->
 
+
+            <Button
+            android:id="@+id/btnCon"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@color/turoise"
+            android:text="Continuar" 
+            android:textSize="8pt"/>
+
     </TableLayout>
+    <WebView
+        android:id="@+id/webView"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="450dp"
+        />
+    <WebView android:id="@+id/puntaje"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         />
+    
+    
+    
 
 </RelativeLayout>

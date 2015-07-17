@@ -11,7 +11,7 @@ import android.text.AlteredCharSequence;
  */
 public class DbHelper extends SQLiteOpenHelper {
 
-	private static final String DB_NAME = "12346.sqlite";
+	private static final String DB_NAME = "135.sqlite";
 	private static final int DB_SCHEME_VERSION = 1;
 
 	public DbHelper(Context context) {
@@ -61,7 +61,7 @@ public class DbHelper extends SQLiteOpenHelper {
 						1,
 						1,
 						"A. Es un espacio en la memoria de la computadora que permite almacenar "
-								+ "temporalmente un dato durante la ejecución de un proceso.",
+								+ "temporalmente un dato.",
 						Boolean.FALSE));
 		db.insert(
 				DataBaseManager.TABLE_ALTERNATIVA,
@@ -69,8 +69,8 @@ public class DbHelper extends SQLiteOpenHelper {
 				generarContentValuesAlternativa(
 						2,
 						1,
-						"B. Es una serie de pasos sin importar el orden,y que describen el proceso "
-								+ "que se debe seguir, para dar solución a un problema Genérico. .",
+						"B. Es una serie de pasos sin importar el orden, describen el proceso "
+								+ "que se debe seguir para dar solución a un problema Genérico.",
 						Boolean.FALSE));
 		db.insert(
 				DataBaseManager.TABLE_ALTERNATIVA,
@@ -79,12 +79,12 @@ public class DbHelper extends SQLiteOpenHelper {
 						3,
 						1,
 						"C. Es una serie de pasos organizados que describe el "
-								+ "proceso que se debe seguir, para dar solución a un problema "
+								+ "proceso que se debe seguir para dar solución a un problema "
 								+ "específico.", Boolean.TRUE));
 		db.insert(DataBaseManager.TABLE_ALTERNATIVA, null,
 				generarContentValuesAlternativa(4, 1,
 						"D. Es un dato numérico o alfanumérico que no cambia durante la "
-								+ "ejecución del programa. ", Boolean.FALSE));
+								+ "ejecución del programa.", Boolean.FALSE));
 
 		/* Pregunta 2 */
 		db.insert(
@@ -370,7 +370,7 @@ public class DbHelper extends SQLiteOpenHelper {
 				generarContentValuesAlternativa(
 						38,
 						10,
-						"B. Entrada, programación y salida.",
+						"B. Entrada, programación y salida.    ",
 						Boolean.FALSE));
 		db.insert(
 				DataBaseManager.TABLE_ALTERNATIVA,
@@ -378,7 +378,7 @@ public class DbHelper extends SQLiteOpenHelper {
 				generarContentValuesAlternativa(
 						39,
 						10,
-						"C. Información, proceso y salida.",
+						"C. Información, proceso y salida.      ",
 						Boolean.FALSE));
 		db.insert(
 				DataBaseManager.TABLE_ALTERNATIVA,
@@ -386,7 +386,7 @@ public class DbHelper extends SQLiteOpenHelper {
 				generarContentValuesAlternativa(
 						40,
 						10,
-						"D. Información, programación y salida.",
+						"D. Información, programación estructurada y salida.  ",
 						Boolean.FALSE));
 
 	}

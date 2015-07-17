@@ -51,7 +51,19 @@
             android:layout_toRightOf="@+id/profile_photo"
             android:ems="10"
             android:inputType="textMultiLine"
-            android:text="puesto y puntaje"
+            android:text="Puesto: 20"
+            android:textSize="16dp" />
+        
+         <TextView
+            android:id="@+id/descripcion_profile1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="14dp"
+            android:layout_toRightOf="@+id/descripcion_profile"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:text="Puntaje: 0"
             android:textSize="16dp" />
 
         <TextView
